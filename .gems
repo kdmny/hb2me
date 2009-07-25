@@ -1,0 +1,12 @@
+highline --version '>= 1.4.0'
+activemerchant --version '>= 1.4.1'
+tlsmail --version '0.0.1'
+activerecord-tableless --version '>= 0.1.0'
+calendar_date_select --version '1.15'
+spree --version '>=  0.8.3'
+facebooker --version '>= 1.0.31'
+authlogic  --version '>= 2.0.11'
+haml-edge  --version '= 2.1.3'
+chriseppstein-compass --version '= 0.6.6' --source gems.github.com
+searchlogic  --version '= 1.6.6'
+postgres-pr
