@@ -12,7 +12,10 @@ class SiteExtension < Spree::Extension
   #   config.gem "gemname-goes-here", :version => '1.2.3'
   # end
   
-  def activate
-    # admin.tabs.add "Site", "/admin/site", :after => "Layouts", :visibility => [:all]
-  end
+  def activate 
+    AppConfiguration.class_eval do 
+      preference :stylesheets, :string, :default => 'compiled/screen,stylesheets/site' 
+    end 
+  end 
 end
+
