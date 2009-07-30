@@ -1,0 +1,11 @@
+<h2><%= t("friend")%></h2>
+<div class="inner">
+  <div id="choose_friend_error"></div>
+  <fb:serverfbml style="width: 600px;">  
+	<script type="text/fbml">  
+		<fb:fbml> 
+			<fb:multi-friend-selector showborder="false" actiontext="Invite your friends to use Connect."> 
+		</fb:fbml>
+	</script>
+  </fb:serverfbml>
+</div>

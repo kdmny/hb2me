@@ -1,0 +1,15 @@
+<h2>Choose a friend</h2>
+<div class="inner">
+  <div id="friend_error"></div>
+	<fb:serverfbml style="width: 600px;">  
+		<script type="text/fbml">  
+			<fb:fbml>  
+				<fb:friend-selector uid="<%= session[:facebook_session] %>" name="uid" idname="friend_sel" />
+			</fb:fbml>  
+		</script>  
+	</fb:serverfbml>
+	<input id="friend_sel" name="friend_sel" type="hidden" value=""/>
+	<div class="form-buttons">
+	    <input id="continue_registration" type="button" class="button primary" value="<%=t("continue") %>"/>
+	  </div>
+</div>

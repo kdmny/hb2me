@@ -1,1 +1,35 @@
-body { background: #99CC99; } 
+body { 
+	background: #ffffff; 
+} 
+
+.container {
+	width: 600px;
+}
+
+#wrapper {
+	background-image: none;
+	background: #ffffff;
+}
+
+body.two-col #wrapper {
+	background-image: none;
+}
+
+body.one-col #content {
+	display:inline;
+	float:left;
+	margin-right:0;
+	width:600px;
+}
+
+body.two-col #content {
+	display:inline;
+	float:left;
+	margin-right:0;
+	width:600px;
+}
+
+#wrapper {
+	background: none;
+	padding: 0px;
+}

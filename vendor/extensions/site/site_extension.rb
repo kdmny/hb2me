@@ -14,7 +14,8 @@ class SiteExtension < Spree::Extension
   
   def activate 
     AppConfiguration.class_eval do 
-      preference :stylesheets, :string, :default => 'compiled/screen,site' 
+      preference :stylesheets, :string, :default => 'compiled/screen,stylesheets/site' 
+      preference :logo, :string, :default => '/images/logo.png' 
     end 
   end 
 end
