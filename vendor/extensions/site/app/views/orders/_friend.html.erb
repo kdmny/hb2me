@@ -1,17 +1,19 @@
 <h2>Choose a friend</h2>
 <div class="inner">
   <div id="friend_error"></div>
-	<fb:serverfbml style="width: 600px;">  
+	<fb:serverfbml style="width: 500px; height:60px;">
 		<script type="text/fbml">  
-			<fb:fbml>  
-				<fb:friend-selector uid="<%= session[:facebook_session] %>" name="uid" idname="friend_sel" />
+			<fb:fbml>  				
+				<form action="http://localhost:3000<%=request.request_uri%>" target="_parent" id="fb_friend_selection">
+					<fb:friend-selector uid="<%= session[:facebook_session] %>" name="uid" idname="friend_sel" />
+					<fb:submit>Continue</fb:submit>
+				</form>
 			</fb:fbml>  
 		</script>  
 	</fb:serverfbml>
-	<input id="friend_sel" name="friend_sel" type="hidden" value=""/>
-	<div class="form-buttons">
+	<!--<div class="form-buttons">
 	    <input id="continue_friend" type="button" class="button primary" value="<%=t("continue") %>"/>
-	</div>
+	</div>-->
 </div>
 <script type="text/javascript">
 	function submit_friend(){

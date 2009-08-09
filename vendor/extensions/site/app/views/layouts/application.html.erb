@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title>Spree</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
  
   <%= stylesheet_link_tag 'compiled/screen', 'site' %>
- 
+  <link rel="stylesheet" href="http://static.ak.facebook.com/css/fb_connect.css" type="text/css" />
+
   <%= javascript_include_tag 'jquery-1.3.2.min', 'jquery.validate.pack.js', :cache => 'jquery-and-plugins' %>
   <%= meta_data_tags %> 
   <%= yield :head %>
@@ -40,6 +41,7 @@ end
     <% end %>-->
     
     <div id="content">
+	
       <%= breadcrumbs(@taxon) if @taxon %>
       <% if flash[:notice] %>
       <div class="flash notice"><%= flash[:notice] %></div>
@@ -48,23 +50,26 @@ end
       <div class="flash errors"><%= flash[:error] %></div>
       <% end %>
       <%= yield %>
+	
+
     </div>
     <!--<%= render :partial => 'shared/footer'%>    		-->
   </div>
-  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+	<!-- begin facebook connect -->
+    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
 	<script type="text/javascript">
-	    FB_RequireFeatures(
-	    	["CanvasUtil"],
-	    	function(){
-	    		 FB.XdComm.Server.init('/xd_receiver.html');
-	    		 FB.CanvasClient.startTimerToSizeToContent();
-	    	}
-	    );
+	    FB_RequireFeatures(["XFBML"], function(){ FB.Facebook.init("6d07d4900862af8ff485fbad004389d1", "/xd_receiver.htm"); });	
 	</script>
-	
 	<script type="text/javascript">
-	    FB_RequireFeatures(["XFBML"], function(){ FB.Facebook.init("6d07d4900862af8ff485fbad004389d1", "/xd_receiver.html"); });	
+		FB_RequireFeatures("CanvasUtil", function(){
+		//FB.XdComm.Server.init('/xd_receiver.htm'); // must have "/" before the html file
+		FB.Facebook.init('6d07d4900862af8ff485fbad004389d1', '/xd_receiver.htm', null);
+		FB.CanvasClient.startTimerToSizeToContent();
+
+
+		});
 	</script>
+	<!-- end facebook connect -->
 
 </body>
 </html>
